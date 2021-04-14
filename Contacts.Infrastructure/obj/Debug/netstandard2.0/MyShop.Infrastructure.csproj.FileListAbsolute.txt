@@ -1,0 +1,12 @@
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\bin\Debug\netstandard2.0\MyShop.Infrastructure.deps.json
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\bin\Debug\netstandard2.0\MyShop.Infrastructure.dll
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\bin\Debug\netstandard2.0\MyShop.Infrastructure.pdb
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\bin\Debug\netstandard2.0\MyShop.Domain.dll
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\bin\Debug\netstandard2.0\MyShop.Domain.pdb
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\obj\Debug\netstandard2.0\MyShop.Infrastructure.csprojAssemblyReference.cache
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\obj\Debug\netstandard2.0\MyShop.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\obj\Debug\netstandard2.0\MyShop.Infrastructure.AssemblyInfo.cs
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\obj\Debug\netstandard2.0\MyShop.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\obj\Debug\netstandard2.0\MyShop.Infrastructure.csproj.CopyComplete
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\obj\Debug\netstandard2.0\MyShop.Infrastructure.dll
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Infrastructure\obj\Debug\netstandard2.0\MyShop.Infrastructure.pdb

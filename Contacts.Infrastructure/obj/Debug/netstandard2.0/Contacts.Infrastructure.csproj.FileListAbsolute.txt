@@ -1,0 +1,12 @@
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\bin\Debug\netstandard2.0\Contacts.Infrastructure.deps.json
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\bin\Debug\netstandard2.0\Contacts.Infrastructure.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\bin\Debug\netstandard2.0\Contacts.Infrastructure.pdb
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\bin\Debug\netstandard2.0\Contacts.Domain.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\bin\Debug\netstandard2.0\Contacts.Domain.pdb
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\obj\Debug\netstandard2.0\Contacts.Infrastructure.csprojAssemblyReference.cache
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\obj\Debug\netstandard2.0\Contacts.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\obj\Debug\netstandard2.0\Contacts.Infrastructure.AssemblyInfo.cs
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\obj\Debug\netstandard2.0\Contacts.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\obj\Debug\netstandard2.0\Contacts.Infrastructure.csproj.CopyComplete
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\obj\Debug\netstandard2.0\Contacts.Infrastructure.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Infrastructure\obj\Debug\netstandard2.0\Contacts.Infrastructure.pdb

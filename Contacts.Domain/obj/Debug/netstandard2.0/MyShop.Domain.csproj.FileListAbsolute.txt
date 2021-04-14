@@ -1,0 +1,9 @@
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\bin\Debug\netstandard2.0\MyShop.Domain.deps.json
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\bin\Debug\netstandard2.0\MyShop.Domain.dll
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\bin\Debug\netstandard2.0\MyShop.Domain.pdb
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\obj\Debug\netstandard2.0\MyShop.Domain.csprojAssemblyReference.cache
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\obj\Debug\netstandard2.0\MyShop.Domain.AssemblyInfoInputs.cache
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\obj\Debug\netstandard2.0\MyShop.Domain.AssemblyInfo.cs
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\obj\Debug\netstandard2.0\MyShop.Domain.csproj.CoreCompileInputs.cache
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\obj\Debug\netstandard2.0\MyShop.Domain.dll
+C:\Users\smelad\Desktop\cdp\c-sharp-design-patterns-data-access-patterns\02\demos\Completed\MyShop.Domain\obj\Debug\netstandard2.0\MyShop.Domain.pdb
