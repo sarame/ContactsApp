@@ -136,6 +136,70 @@
         }
       }
     },
+    "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj",
+        "projectName": "Contacts.Services",
+        "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj",
+        "packagesPath": "C:\\Users\\smelad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\smelad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Domain\\Contacts.Domain.csproj": {
+                "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Domain\\Contacts.Domain.csproj"
+              },
+              "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Web.Tests\\Contacts.Web.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -168,6 +232,9 @@
               },
               "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj"
+              },
+              "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj": {
+                "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj"
               },
               "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Web\\Contacts.Web.csproj": {
                 "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Web\\Contacts.Web.csproj"
@@ -218,6 +285,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.0.3, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
@@ -274,6 +345,9 @@
               },
               "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj"
+              },
+              "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj": {
+                "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj"
               }
             }
           }

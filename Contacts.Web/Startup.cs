@@ -1,6 +1,7 @@
 using Contacts.Domain.Models;
 using Contacts.Infrastructure;
 using Contacts.Infrastructure.Repositories;
+using Contacts.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +32,7 @@ namespace Contacts.Web
             });
             services.AddTransient<MongoContext>();
             services.AddTransient<IRepository<Contact>, ContactRepository>();
+            services.AddTransient<ContactsServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

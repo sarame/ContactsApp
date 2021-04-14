@@ -2699,6 +2699,28 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
+      "xunit.abstractions/2.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {}
+        }
+      },
+      "xunit.extensibility.core/2.4.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "xunit.abstractions": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard1.1/xunit.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.core.dll": {}
+        }
+      },
       "Contacts.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -2726,12 +2748,27 @@
           "bin/placeholder/Contacts.Infrastructure.dll": {}
         }
       },
+      "Contacts.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Contacts.Domain": "1.0.0",
+          "Contacts.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Contacts.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Contacts.Services.dll": {}
+        }
+      },
       "Contacts.Web/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Contacts.Domain": "1.0.0",
           "Contacts.Infrastructure": "1.0.0",
+          "Contacts.Services": "1.0.0",
           "Microsoft.AspNetCore.SpaServices.Extensions": "3.1.13"
         },
         "compile": {
@@ -8712,6 +8749,41 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
+    "xunit.abstractions/2.0.3": {
+      "sha512": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
+      "type": "package",
+      "path": "xunit.abstractions/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/xunit.abstractions.dll",
+        "lib/net35/xunit.abstractions.xml",
+        "lib/netstandard1.0/xunit.abstractions.dll",
+        "lib/netstandard1.0/xunit.abstractions.xml",
+        "lib/netstandard2.0/xunit.abstractions.dll",
+        "lib/netstandard2.0/xunit.abstractions.xml",
+        "xunit.abstractions.2.0.3.nupkg.sha512",
+        "xunit.abstractions.nuspec"
+      ]
+    },
+    "xunit.extensibility.core/2.4.1": {
+      "sha512": "yKZKm/8QNZnBnGZFD9SewkllHBiK0DThybQD/G4PiAmQjKtEZyHi6ET70QPU9KtSMJGRYS6Syk7EyR2EVDU4Kg==",
+      "type": "package",
+      "path": "xunit.extensibility.core/2.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/xunit.core.dll",
+        "lib/net452/xunit.core.dll.tdnet",
+        "lib/net452/xunit.core.xml",
+        "lib/net452/xunit.runner.tdnet.dll",
+        "lib/net452/xunit.runner.utility.net452.dll",
+        "lib/netstandard1.1/xunit.core.dll",
+        "lib/netstandard1.1/xunit.core.xml",
+        "xunit.extensibility.core.2.4.1.nupkg.sha512",
+        "xunit.extensibility.core.nuspec"
+      ]
+    },
     "Contacts.Domain/1.0.0": {
       "type": "project",
       "path": "../Contacts.Domain/Contacts.Domain.csproj",
@@ -8721,6 +8793,11 @@
       "type": "project",
       "path": "../Contacts.Infrastructure/Contacts.Infrastructure.csproj",
       "msbuildProject": "../Contacts.Infrastructure/Contacts.Infrastructure.csproj"
+    },
+    "Contacts.Services/1.0.0": {
+      "type": "project",
+      "path": "../Contacts.Services/Contacts.Services.csproj",
+      "msbuildProject": "../Contacts.Services/Contacts.Services.csproj"
     },
     "Contacts.Web/1.0.0": {
       "type": "project",
@@ -8732,6 +8809,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Contacts.Domain >= 1.0.0",
       "Contacts.Infrastructure >= 1.0.0",
+      "Contacts.Services >= 1.0.0",
       "Contacts.Web >= 1.0.0",
       "MSTest.TestAdapter >= 2.2.3",
       "MSTest.TestFramework >= 2.2.3",
@@ -8740,7 +8818,8 @@
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "MongoDB.Driver >= 2.12.2",
       "Moq >= 4.16.1",
-      "coverlet.collector >= 3.0.3"
+      "coverlet.collector >= 3.0.3",
+      "xunit.extensibility.core >= 2.4.1"
     ]
   },
   "packageFolders": {
@@ -8779,6 +8858,9 @@
             },
             "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Infrastructure\\Contacts.Infrastructure.csproj"
+            },
+            "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj": {
+              "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Services\\Contacts.Services.csproj"
             },
             "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Web\\Contacts.Web.csproj": {
               "projectPath": "C:\\Users\\smelad\\Desktop\\cdp\\poc\\ContactsApp\\Contacts.Web\\Contacts.Web.csproj"
@@ -8829,6 +8911,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[3.0.3, )"
+          },
+          "xunit.extensibility.core": {
+            "target": "Package",
+            "version": "[2.4.1, )"
           }
         },
         "imports": [

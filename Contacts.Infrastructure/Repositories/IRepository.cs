@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Contacts.Infrastructure.Repositories
 {
     public interface IRepository<T>
     {
-        void Add(string table, T entity);
-        void Update(string table, T entity, Guid id);
-        T Get(string table, Guid id);
-        List<T> All(string table);
-        void Delete(string table, Guid id);
+        Task Add(T entity);
+        void Update(T entity, Guid id);
+        T Get(Guid id);
+        List<T> All();
+        void Delete(Guid id);
     }
 }

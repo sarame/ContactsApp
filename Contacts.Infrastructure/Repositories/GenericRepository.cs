@@ -4,50 +4,47 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Contacts.Infrastructure.Repositories
 {
-    public abstract class GenericRepository<T> 
+    public abstract class GenericRepository<T>
         : IRepository<T> where T : class
     {
         protected MongoContext context;
+        protected IMongoCollection<T> dbCollection;
 
         public GenericRepository(MongoContext context)
         {
             this.context = context;
+            this.dbCollection = context.GetCollection<T>(typeof(T).Name);
         }
 
-        public virtual void Add(string table, T record)
+        public virtual async Task Add(T record)
         {
-            var collection = this.context.db.GetCollection<T>(table);
-            collection.InsertOne(record);
+            await dbCollection.InsertOneAsync(record);
         }
 
-        public virtual T Get(string table,Guid id)
+        public virtual T Get(Guid id)
         {
-            var collection = this.context.db.GetCollection<T>(table);
             var filter = Builders<T>.Filter.Eq("Id", id);
-            return collection.Find(filter).First();
+            return dbCollection.Find(filter).First();
         }
 
-        public virtual List<T> All(string table)
+        public virtual List<T> All()
         {
-            var collection = this.context.db.GetCollection<T>(table);
-            return collection.Find(new BsonDocument()).ToList();
+            return dbCollection.Find(new BsonDocument()).ToList();
         }
 
-        public virtual void Update(string table,T record, Guid id)
+        public virtual void Update(T record, Guid id)
         {
-            var collection = this.context.db.GetCollection<T>(table);
-            collection.ReplaceOne(new BsonDocument("_id", id), record, new ReplaceOptions { IsUpsert = true });
+            dbCollection.ReplaceOne(new BsonDocument("_id", id), record);
         }
 
-        public virtual void Delete(string table, Guid id)
+        public virtual void Delete(Guid id)
         {
-            var collection = this.context.db.GetCollection<T>(table);
             var filter = Builders<T>.Filter.Eq("Id", id);
-            collection.DeleteOne(filter);
+            dbCollection.DeleteOne(filter);
         }
-
     }
 }

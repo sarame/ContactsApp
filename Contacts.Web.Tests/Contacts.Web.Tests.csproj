@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Contacts.Domain\Contacts.Domain.csproj" />
+    <ProjectReference Include="..\Contacts.Infrastructure\Contacts.Infrastructure.csproj" />
     <ProjectReference Include="..\Contacts.Web\Contacts.Web.csproj" />
-    <ProjectReference Include="..\MyShop.Domain\Contacts.Domain.csproj" />
-    <ProjectReference Include="..\MyShop.Infrastructure\Contacts.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

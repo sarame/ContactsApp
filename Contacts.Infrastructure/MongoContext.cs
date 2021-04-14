@@ -2,7 +2,7 @@
 
 namespace Contacts.Infrastructure
 {
-    public class MongoContext
+    public class MongoContext : IMongoContext
     {
         public IMongoDatabase db;
 
@@ -10,6 +10,11 @@ namespace Contacts.Infrastructure
         {
             MongoClient client = new MongoClient();
             db = client.GetDatabase("PhoneContacts");
+        }
+
+        public IMongoCollection<T> GetCollection<T>(string name)
+        {
+            return db.GetCollection<T>(name);
         }
     }
 }

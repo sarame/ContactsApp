@@ -5,6 +5,11 @@ using Contacts.Infrastructure.Repositories;
 using Contacts.Web.Controllers;
 using Microsoft.Extensions.Logging;
 using System;
+using Contacts.Services;
+using System.Threading;
+using System.Threading.Tasks;
+using Contacts.Infrastructure;
+using Xunit;
 
 namespace Contacts.Web.Tests
 {
@@ -14,24 +19,24 @@ namespace Contacts.Web.Tests
         [TestMethod]
         public void CanCreateOrderWithCorrectModel()
         {
-            // ARRANGE 
+            //// ARRANGE 
             var contactsRepository = new Mock<IRepository<Contact>>();
-            var logger = new Mock<ILogger<ContactsController>>();
+           var mockContext = new Mock<MongoContext>();
+            var contactsServices = new Mock<ContactsServices>();
+            //    _mockCollection.Setup(op => op.InsertOneAsync(_book, null,
+            //    default(CancellationToken))).Returns(Task.CompletedTask);
 
-            var contactsController = new ContactsController(logger.Object,
-                contactsRepository.Object
-            );
+            //    _mockContext.Setup(c => c.GetCollection<Book>(typeof(Book).Name)).Returns(_mockCollection.Object);
+            //    var bookRepo = new BookRepository(_mockContext.Object);
 
-            var contactRecord = new Contact { Name = "kero", Phone = 01229768949 };
+            //    //Act
+            //    await bookRepo.Create(_book);
 
-            // ACT
+            //    //Assert 
 
-            contactsController.InsertContact(contactRecord);
+            //    //Verify if InsertOneAsync is called once 
+            //    _mockCollection.Verify(c => c.InsertOneAsync(_book, null, default(CancellationToken)), Times.Once);
 
-            // ASSERT
-
-           //contactsRepository.Verify(r => r.Update("Contacts", contactRecord, new Guid("5ac6bc25-5c63-49f4-bfb6-7153ae2f866e")), 
-           //    Times.AtLeastOnce());
         }
     }
 }

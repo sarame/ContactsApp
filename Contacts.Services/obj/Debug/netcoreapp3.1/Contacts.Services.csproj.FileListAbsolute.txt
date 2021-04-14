@@ -1,0 +1,14 @@
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\bin\Debug\netcoreapp3.1\Contacts.Services.deps.json
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\bin\Debug\netcoreapp3.1\Contacts.Services.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\bin\Debug\netcoreapp3.1\Contacts.Services.pdb
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\bin\Debug\netcoreapp3.1\Contacts.Domain.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\bin\Debug\netcoreapp3.1\Contacts.Infrastructure.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\bin\Debug\netcoreapp3.1\Contacts.Domain.pdb
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\bin\Debug\netcoreapp3.1\Contacts.Infrastructure.pdb
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\obj\Debug\netcoreapp3.1\Contacts.Services.csprojAssemblyReference.cache
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\obj\Debug\netcoreapp3.1\Contacts.Services.AssemblyInfoInputs.cache
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\obj\Debug\netcoreapp3.1\Contacts.Services.AssemblyInfo.cs
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\obj\Debug\netcoreapp3.1\Contacts.Services.csproj.CoreCompileInputs.cache
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\obj\Debug\netcoreapp3.1\Contacts.Services.csproj.CopyComplete
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\obj\Debug\netcoreapp3.1\Contacts.Services.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Services\obj\Debug\netcoreapp3.1\Contacts.Services.pdb

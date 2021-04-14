@@ -1,5 +1,6 @@
 ﻿using Contacts.Domain.Models;
 using Contacts.Infrastructure.Repositories;
+using Contacts.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,23 +15,22 @@ namespace Contacts.Web.Controllers
     [Route("[controller]")]
     public class ContactsController : ControllerBase
     {
-        private static readonly string TableName = "Contacts";
         private readonly ILogger<ContactsController> _logger;
-        private readonly IRepository<Contact> _repository;
+        private readonly ContactsServices _contactsServices;
 
-        public ContactsController(ILogger<ContactsController> logger, IRepository<Contact> repository)
+        public ContactsController(ILogger<ContactsController> logger, ContactsServices contactsServices)
         {
             _logger = logger;
-            _repository = repository;
+            _contactsServices = contactsServices;
         }
 
         [Route("insertContact")]
         [HttpPost]
-        public IActionResult InsertContact([FromBody] Contact record)
+        public async Task<IActionResult> InsertContactAsync([FromBody] Contact record)
         {
             try
             {
-                _repository.Add(TableName, record);
+                await _contactsServices.Add(record);
                 return new OkObjectResult(Ok());
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                var result = _repository.All(TableName);
+                var result = _contactsServices.All();
                 return new OkObjectResult(result);
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                var result = _repository.Get(TableName, id);
+                var result = _contactsServices.Get(id);
                 return new OkObjectResult(result);
             }
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                _repository.Update(TableName, record, id);
+                _contactsServices.Update(record, id);
                 return new OkObjectResult(Ok());
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                _repository.Delete(TableName, id);
+                _contactsServices.Delete(id);
                 return new OkObjectResult(Ok());
             }
             catch (Exception ex)
