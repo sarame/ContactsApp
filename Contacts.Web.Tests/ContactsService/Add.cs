@@ -5,12 +5,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Contacts.Web.Tests.ContactsService
 {
     [TestClass]
-   public class Add
+    public class Add
     {
+
         [TestMethod]
         public async Task AddNullContact_ThrowError()
         {
@@ -19,20 +21,21 @@ namespace Contacts.Web.Tests.ContactsService
             var contactsServices = new ContactsServices(contactsRepository.Object);
 
             //Act & Assert 
-            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => contactsServices.Add(null));
-            contactsRepository.Verify(e=>e.Add(It.IsAny<Contact>()),Times.Never);
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => contactsServices.AddAsync(null));
+            contactsRepository.Verify(e => e.AddAsync(It.IsAny<Contact>()), Times.Never);
         }
 
         [TestMethod]
-        public async Task AddCorrectContact_()
+        public async Task ValidContact_InsertNewContact()
         {
             // ARRANGE 
-
-            var contactsServices = new Mock<IContactsServices>();
-
-            //Act & Assert 
-            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => contactsServices.Object.Add(null));
-
+            var contactsRepository = new Mock<IRepository<Contact>>();
+            var contactsServices = new ContactsServices(contactsRepository.Object);
+            var contact = new Contact { Name = "sdsdsd", Phone = 165456848 };
+            //Act 
+            await contactsServices.AddAsync(contact);
+            // Assert 
+            contactsRepository.Verify(e => e.AddAsync(It.IsAny<Contact>()), Times.Once);
         }
     }
 }

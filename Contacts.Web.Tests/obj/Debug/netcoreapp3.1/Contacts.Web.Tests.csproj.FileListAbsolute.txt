@@ -292,3 +292,6 @@ C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\obj\Debug\netcore
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\obj\Debug\netcoreapp3.1\Contacts.Web.Tests.genruntimeconfig.cache
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\bin\Debug\netcoreapp3.1\xunit.core.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\bin\Debug\netcoreapp3.1\AutoFixture.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\bin\Debug\netcoreapp3.1\AutoFixture.AutoMoq.dll
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\bin\Debug\netcoreapp3.1\Fare.dll

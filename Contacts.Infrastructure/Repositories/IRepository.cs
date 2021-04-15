@@ -6,10 +6,10 @@ namespace Contacts.Infrastructure.Repositories
 {
     public interface IRepository<T>
     {
-        Task Add(T entity);
-        Task Update(T entity, Guid id);
-        Task<T> Get(Guid id);
-        Task<List<T>> All();
-        Task Delete(Guid id);
+        Task AddAsync(T entity);
+        Task UpdateAsync(T entity, Guid id);
+        Task<T> GetAsync(Guid id);
+        Task<List<T>> AllAsync();
+        Task DeleteAsync(Guid id);
     }
 }

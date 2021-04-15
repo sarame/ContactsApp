@@ -15,32 +15,32 @@ namespace Contacts.Services
             _repository = repository;
         }
 
-        public async Task Add(Contact obj)
+        public async Task AddAsync(Contact obj)
         {
             if (obj == null)
             {
                 throw new ArgumentNullException(typeof(Contact).Name + " object is null");
             }
-            await _repository.Add(obj);
+            await _repository.AddAsync(obj);
         }
-        public async Task<List<Contact>> All()
+        public async Task<List<Contact>> AllAsync()
         {
-            return await _repository.All();
-        }
-
-        public async Task<Contact> Get(Guid id)
-        {
-            return await _repository.Get(id);
+            return await _repository.AllAsync();
         }
 
-        public async Task Update(Contact obj, Guid id)
+        public async Task<Contact> GetAsync(Guid id)
         {
-            await _repository.Update(obj, id);
+            return await _repository.GetAsync(id);
         }
 
-        public async Task Delete(Guid id)
+        public async Task UpdateAsync(Contact obj, Guid id)
         {
-            await _repository.Delete(id);
+            await _repository.UpdateAsync(obj, id);
+        }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            await _repository.DeleteAsync(id);
         }
     }
 

@@ -27,7 +27,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                await _contactsServices.Add(record);
+                await _contactsServices.AddAsync(record);
                 return Ok();
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                var result = await _contactsServices.All();
+                var result = await _contactsServices.AllAsync();
                 return new OkObjectResult(result);
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                var result = await _contactsServices.Get(id);
+                var result = await _contactsServices.GetAsync(id);
                 return new OkObjectResult(result);
             }
             catch (Exception ex)
@@ -77,7 +77,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                await _contactsServices.Update(record, id);
+                await _contactsServices.UpdateAsync(record, id);
                 return Ok();
             }
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                await _contactsServices.Delete(id);
+                await _contactsServices.DeleteAsync(id);
                 return Ok();
             }
             catch (Exception ex)

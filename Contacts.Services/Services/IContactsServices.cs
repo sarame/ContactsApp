@@ -7,11 +7,11 @@ namespace Contacts.Services
 {
     public interface IContactsServices
     {
-        Task Add(Contact entity);
-        Task Update(Contact entity, Guid id);
-        Task<Contact> Get(Guid id);
-        Task<List<Contact>> All();
-        Task Delete(Guid id);
+        Task AddAsync(Contact entity);
+        Task UpdateAsync(Contact entity, Guid id);
+        Task<Contact> GetAsync(Guid id);
+        Task<List<Contact>> AllAsync();
+        Task DeleteAsync(Guid id);
     }
 
 }
