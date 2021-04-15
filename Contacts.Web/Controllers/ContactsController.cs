@@ -1,12 +1,9 @@
 ﻿using Contacts.Domain.Models;
-using Contacts.Infrastructure.Repositories;
 using Contacts.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Contacts.Web.Controllers
@@ -48,7 +45,7 @@ namespace Contacts.Web.Controllers
             try
             {
                 var result = await _contactsServices.All();
-                return  new OkObjectResult(result);
+                return new OkObjectResult(result);
             }
             catch (Exception ex)
             {

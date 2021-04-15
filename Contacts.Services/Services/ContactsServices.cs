@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contacts.Services
 {
-    public class ContactsServices: IContactsServices
+    public class ContactsServices : IContactsServices
     {
         private readonly IRepository<Contact> _repository;
 

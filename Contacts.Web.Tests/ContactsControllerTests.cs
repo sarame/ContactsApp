@@ -1,15 +1,9 @@
+using Contacts.Domain.Models;
+using Contacts.Infrastructure;
+using Contacts.Infrastructure.Repositories;
+using Contacts.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Contacts.Domain.Models;
-using Contacts.Infrastructure.Repositories;
-using Contacts.Web.Controllers;
-using Microsoft.Extensions.Logging;
-using System;
-using Contacts.Services;
-using System.Threading;
-using System.Threading.Tasks;
-using Contacts.Infrastructure;
-using Xunit;
 
 namespace Contacts.Web.Tests
 {
@@ -21,8 +15,9 @@ namespace Contacts.Web.Tests
         {
             //// ARRANGE 
             var contactsRepository = new Mock<IRepository<Contact>>();
-           var mockContext = new Mock<MongoContext>();
+            var mockContext = new Mock<MongoContext>();
             var contactsServices = new Mock<ContactsServices>();
+           // var response = contactsServices.Object.Add(null);
             //    _mockCollection.Setup(op => op.InsertOneAsync(_book, null,
             //    default(CancellationToken))).Returns(Task.CompletedTask);
 
