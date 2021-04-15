@@ -25,26 +25,27 @@ namespace Contacts.Infrastructure.Repositories
             await dbCollection.InsertOneAsync(record);
         }
 
-        public virtual T Get(Guid id)
+        public virtual async Task<T> Get(Guid id)
         {
             var filter = Builders<T>.Filter.Eq("Id", id);
-            return dbCollection.Find(filter).First();
+            return await dbCollection.FindAsync(filter).Result.FirstOrDefaultAsync();
         }
 
-        public virtual List<T> All()
+        public virtual async Task<List<T>> All()
         {
-            return dbCollection.Find(new BsonDocument()).ToList();
+            var all = await dbCollection.FindAsync(Builders<T>.Filter.Empty);
+            return await all.ToListAsync();
         }
 
-        public virtual void Update(T record, Guid id)
+        public virtual async Task Update(T record, Guid id)
         {
-            dbCollection.ReplaceOne(new BsonDocument("_id", id), record);
+            await dbCollection.ReplaceOneAsync(new BsonDocument("_id", id), record);
         }
 
-        public virtual void Delete(Guid id)
+        public virtual async Task Delete(Guid id)
         {
             var filter = Builders<T>.Filter.Eq("Id", id);
-            dbCollection.DeleteOne(filter);
+            await dbCollection.DeleteOneAsync(filter);
         }
     }
 }

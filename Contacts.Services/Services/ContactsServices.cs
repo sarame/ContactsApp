@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contacts.Services
 {
-    public class ContactsServices
+    public class ContactsServices: IContactsServices
     {
         private readonly IRepository<Contact> _repository;
 
@@ -23,24 +23,24 @@ namespace Contacts.Services
             }
             await _repository.Add(obj);
         }
-        public List<Contact> All()
+        public async Task<List<Contact>> All()
         {
-            return _repository.All();
+            return await _repository.All();
         }
 
-        public Contact Get(Guid id)
+        public async Task<Contact> Get(Guid id)
         {
-            return _repository.Get(id);
+            return await _repository.Get(id);
         }
 
-        public void Update(Contact obj, Guid id)
+        public async Task Update(Contact obj, Guid id)
         {
-            _repository.Update(obj, id);
+            await _repository.Update(obj, id);
         }
 
-        public void Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            _repository.Delete(id);
+            await _repository.Delete(id);
         }
     }
 

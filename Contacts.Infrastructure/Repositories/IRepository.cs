@@ -8,9 +8,9 @@ namespace Contacts.Infrastructure.Repositories
     public interface IRepository<T>
     {
         Task Add(T entity);
-        void Update(T entity, Guid id);
-        T Get(Guid id);
-        List<T> All();
-        void Delete(Guid id);
+        Task Update(T entity, Guid id);
+        Task<T> Get(Guid id);
+        Task<List<T>> All();
+        Task Delete(Guid id);
     }
 }

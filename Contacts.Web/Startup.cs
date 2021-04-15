@@ -32,7 +32,7 @@ namespace Contacts.Web
             });
             services.AddTransient<MongoContext>();
             services.AddTransient<IRepository<Contact>, ContactRepository>();
-            services.AddTransient<ContactsServices>();
+            services.AddTransient<IContactsServices, ContactsServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

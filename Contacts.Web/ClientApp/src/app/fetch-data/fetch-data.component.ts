@@ -19,7 +19,7 @@ export class FetchDataComponent {
       this.forecasts = result;
     }, error => console.error(error));
     const g: ContactModel = {
-      name: "tt",
+      name: "rrr",
       phone: 989656
     };
     this.contactsService.insertContact(g)

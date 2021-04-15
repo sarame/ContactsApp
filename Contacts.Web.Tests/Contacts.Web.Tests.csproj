@@ -18,11 +18,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Contacts.Domain\Contacts.Domain.csproj" />
     <ProjectReference Include="..\Contacts.Infrastructure\Contacts.Infrastructure.csproj" />
+    <ProjectReference Include="..\Contacts.Services\Contacts.Services.csproj" />
     <ProjectReference Include="..\Contacts.Web\Contacts.Web.csproj" />
   </ItemGroup>
 

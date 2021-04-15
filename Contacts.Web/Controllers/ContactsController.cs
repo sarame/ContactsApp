@@ -16,9 +16,9 @@ namespace Contacts.Web.Controllers
     public class ContactsController : ControllerBase
     {
         private readonly ILogger<ContactsController> _logger;
-        private readonly ContactsServices _contactsServices;
+        private readonly IContactsServices _contactsServices;
 
-        public ContactsController(ILogger<ContactsController> logger, ContactsServices contactsServices)
+        public ContactsController(ILogger<ContactsController> logger, IContactsServices contactsServices)
         {
             _logger = logger;
             _contactsServices = contactsServices;
@@ -31,7 +31,7 @@ namespace Contacts.Web.Controllers
             try
             {
                 await _contactsServices.Add(record);
-                return new OkObjectResult(Ok());
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -43,12 +43,12 @@ namespace Contacts.Web.Controllers
 
         [Route("loadContacts")]
         [HttpGet]
-        public IActionResult LoadContacts()
+        public async Task<IActionResult> LoadContacts()
         {
             try
             {
-                var result = _contactsServices.All();
-                return new OkObjectResult(result);
+                var result = await _contactsServices.All();
+                return  new OkObjectResult(result);
             }
             catch (Exception ex)
             {
@@ -59,11 +59,11 @@ namespace Contacts.Web.Controllers
         }
         [Route("loadRecordById/{id}")]
         [HttpGet]
-        public IActionResult LoadRecordById(Guid id)
+        public async Task<IActionResult> LoadRecordById(Guid id)
         {
             try
             {
-                var result = _contactsServices.Get(id);
+                var result = await _contactsServices.Get(id);
                 return new OkObjectResult(result);
             }
             catch (Exception ex)
@@ -76,12 +76,12 @@ namespace Contacts.Web.Controllers
 
         [Route("upsertContact/{id}")]
         [HttpPost]
-        public IActionResult UpsertContact(Guid id, [FromBody] Contact record)
+        public async Task<IActionResult> UpsertContact(Guid id, [FromBody] Contact record)
         {
             try
             {
-                _contactsServices.Update(record, id);
-                return new OkObjectResult(Ok());
+                await _contactsServices.Update(record, id);
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -92,12 +92,12 @@ namespace Contacts.Web.Controllers
         }
         [Route("deleteContacts/{id}")]
         [HttpGet]
-        public IActionResult DeleteContact(Guid id)
+        public async Task<IActionResult> DeleteContact(Guid id)
         {
             try
             {
-                _contactsServices.Delete(id);
-                return new OkObjectResult(Ok());
+                await _contactsServices.Delete(id);
+                return Ok();
             }
             catch (Exception ex)
             {
