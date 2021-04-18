@@ -77,7 +77,7 @@ export class ContactService {
       name: '',
       company: 'inc',
       email: 'sara@gmail.com',
-      phone: "1234567890"
+      phone: "01234567890"
     };
   }
   private handleError(err: any) {

@@ -35,7 +35,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
   loadContacts() {
     this.contactService.loadContacts()
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe((result: Contact[]) => { this.contacts = result; console.log(this.contacts) },
+      .subscribe((result: Contact[]) => { this.contacts = result; },
         error => console.error(error));
   }
 

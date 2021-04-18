@@ -8,6 +8,7 @@ import { ContactService } from '../services/contact.service';
 import { GenericValidator } from '../../shared/generic-validator';
 import { NumberValidators } from '../../shared/number.validator';
 import { takeUntil } from 'rxjs/operators';
+import { ContactConstants } from '../constants/contact.constants';
 
 @Component({
   selector: 'contact-edit',
@@ -30,28 +31,17 @@ export class ContactEditComponent {
   constructor(private fb: FormBuilder, private contactService: ContactService) {
 
     // Defines all of the validation messages for the form.
-    // These could instead be retrieved from a file or database.
-    this.validationMessages = {
-      name: {
-        required: 'Name is required.'
-      },
-      phone: {
-        required: 'Phone code is required.'
-      }
-    };
-
-    // Define an instance of the validator for use with this form,
-    // passing in this form's set of validation messages.
+    this.validationMessages = ContactConstants.validationMessages;
     this.genericValidator = new GenericValidator(this.validationMessages);
   }
 
   ngOnInit(): void {
     // Define the form group
     this.contactForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       phone: ['', Validators.required],
       company: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['',[ Validators.required, Validators.email]]
     });
 
     // Watch for changes to the currently selected product
@@ -67,10 +57,9 @@ export class ContactEditComponent {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.ngUnsubscribe.unsubscribe();
   }
 
-  // Also validate on blur
-  // Helpful if the user tabs through required fields
   blur(): void {
     this.displayMessage = this.genericValidator.processMessages(this.contactForm);
   }
@@ -85,9 +74,9 @@ export class ContactEditComponent {
 
       // Display the appropriate page title
       if (!contact.id) {
-        this.pageTitle = 'Add Contact';
+        this.pageTitle = ContactConstants.addPageTitle;
       } else {
-        this.pageTitle = `Edit Contact: ${contact.name}`;
+        this.pageTitle = ContactConstants.updatePageTitle(contact.name);
       }
 
       // Update the data on the form
@@ -101,19 +90,16 @@ export class ContactEditComponent {
   }
 
   cancelEdit(product: Contact): void {
-    // Redisplay the currently selected product
-    // replacing any edits made
     this.displayContact(product);
   }
 
   deleteContact(contact: Contact): void {
     if (contact && contact.id) {
-      if (confirm(`Really delete the contact: ${contact.name}?`)) {
+      if (confirm(ContactConstants.deleteConfirmation(contact.name))) {
         this.contactService.deleteContact(contact.id).subscribe(() => { this.contactService.changeSelectedContact(null) },
           error => console.error(error));
       }
     } else {
-      // No need to delete, it was never saved
       this.contactService.changeSelectedContact(null);
     }
   }
@@ -121,23 +107,19 @@ export class ContactEditComponent {
   saveProduct(originalContact: Contact): void {
     if (this.contactForm.valid) {
       if (this.contactForm.dirty) {
-        // Copy over all of the original product properties
-        // Then copy over the values from the form
-        // This ensures values not on the form, such as the Id, are retained
         const contact = { ...originalContact, ...this.contactForm.value };
-
         if (!contact.id) {
           this.contactService.insertContact(contact).pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((result: Contact) => {
               this.contactService.changeSelectedContact(contact);
-              alert("Your contact has been successfully added");
+              alert(ContactConstants.addMessage);
             },
               error => console.error(error));
         } else {
           this.contactService.updateContact(contact).pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((result: Contact) => {
               this.contactService.changeSelectedContact(contact);
-              alert("Your contact has been successfully saved");
+              alert(ContactConstants.updateMessage);
             },
               error => console.error(error));
         }

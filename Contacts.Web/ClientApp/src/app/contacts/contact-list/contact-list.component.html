@@ -23,18 +23,11 @@
     <div class="row">
       <div class="form-check col-md-7">
         <label>
-          <input class="form-check-input"
-                 type="checkbox"
-                 (change)="checkChanged()"
-                 [checked]="displayEmail">
-          Display Contact Email
+          <input class="form-check-input" type="checkbox" (change)="checkChanged()" [checked]="displayEmail"> Display Contact Email
         </label>
       </div>
       <div class="col-md-4 text-right">
-        <button class="btn btn-primary"
-                (click)="newContact()">
-          Add
-        </button>
+        <button class="btn btn-outline-primary w-100" (click)="newContact()"> Add </button>
       </div>
     </div>
   </div>
