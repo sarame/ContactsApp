@@ -14,12 +14,12 @@ export class ContactListComponent implements OnInit, OnDestroy {
   pageTitle = 'Contacts';
   errorMessage: string;
 
-  displayCode: boolean;
+  displayEmail: boolean;
 
   contacts: Contact[];
 
-  // Used to highlight the selected product in the list
-  selectedProduct: Contact | null;
+  // Used to highlight the selected contact in the list
+  selectedContact: Contact | null;
   sub: Subscription;
   ngUnsubscribe: Subject<any> = new Subject();
 
@@ -27,7 +27,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub = this.contactService.selectedContactChanges$.subscribe(
-      currentProduct => this.selectedProduct = currentProduct
+      currentProduct => this.selectedContact = currentProduct
     );
     this.loadContacts();
   }
@@ -44,16 +44,15 @@ export class ContactListComponent implements OnInit, OnDestroy {
   }
 
   checkChanged(): void {
-    this.displayCode = !this.displayCode;
+    this.displayEmail = !this.displayEmail;
   }
 
-  newProduct(): void {
+  newContact(): void {
     this.contactService.changeSelectedContact(this.contactService.newContact());
   }
 
   contactSelected(contact: Contact): void {
     this.contactService.changeSelectedContact(contact);
-    console.log(contact);
   }
 
 }

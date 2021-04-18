@@ -1,9 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of, BehaviorSubject, throwError } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
-
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Contact } from '../models/contact';
 import { Guid } from 'guid-typescript';
 
@@ -12,10 +10,10 @@ import { Guid } from 'guid-typescript';
 })
 export class ContactService {
   getProducts() {
-      throw new Error('Method not implemented.');
+    throw new Error('Method not implemented.');
   }
   private contactsUrl = 'api/Contacts';
-  private Contacts: Contact[];
+  private contacts: Contact[];
   private baseServiceUrl = '';
 
   private selectedContactSource = new BehaviorSubject<Contact | null>(null);
@@ -25,18 +23,20 @@ export class ContactService {
     this.baseServiceUrl = baseUrl;
   }
 
-  loadContacts(): Observable<Contact[]>  {
+  loadContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(`${this.baseServiceUrl}contacts/loadContacts`)
-      .pipe(catchError(errorRes => {
+      .pipe(tap(data => this.contacts = data), catchError(errorRes => {
         return throwError(errorRes);
       }));
   }
 
-  insertContact(model: Contact){
+  insertContact(model: Contact) {
     const endpoint = `${this.baseServiceUrl}contacts/insertContact`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(endpoint, model, { headers: headers })
-      .pipe(catchError(errorRes => {
+      .pipe(tap(data => {
+        this.contacts.push(model);
+      }), catchError(errorRes => {
         return throwError(errorRes);
       }));
   }
@@ -44,8 +44,26 @@ export class ContactService {
   updateContact(model: Contact) {
     const endpoint = `${this.baseServiceUrl}contacts/UpdateContact`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(endpoint, model, { headers: headers })
-      .pipe(catchError(errorRes => {
+    return this.http.put(endpoint, model, { headers: headers })
+      .pipe(tap(() => {
+        const foundIndex = this.contacts.findIndex(item => item.id === model.id);
+        if (foundIndex > -1) {
+          this.contacts[foundIndex] = model;
+        }
+      }), catchError(errorRes => {
+        return throwError(errorRes);
+      }));
+  }
+
+  deleteContact(id: Guid) {
+    const endpoint = `${this.baseServiceUrl}contacts/deleteContacts/${id.toString()}`;
+    return this.http.delete(endpoint)
+      .pipe(tap(() => {
+        const foundIndex = this.contacts.findIndex(item => item.id === id);
+        if (foundIndex > -1) {
+          this.contacts.splice(foundIndex, 1);
+        }
+      }), catchError(errorRes => {
         return throwError(errorRes);
       }));
   }
@@ -53,19 +71,6 @@ export class ContactService {
   changeSelectedContact(selectedContact: Contact | null): void {
     this.selectedContactSource.next(selectedContact);
   }
-
-  getContacts(): Observable<Contact[]> {
-    if (this.Contacts) {
-      return of(this.Contacts);
-    }
-    return this.http.get<Contact[]>(this.contactsUrl)
-      .pipe(
-        tap(data => console.log(JSON.stringify(data))),
-        tap(data => this.Contacts = data),
-        catchError(this.handleError)
-      );
-  }
-
   // Return an initialized Contact
   newContact(): Contact {
     return {
@@ -75,58 +80,6 @@ export class ContactService {
       phone: "1234567890"
     };
   }
-
-  createContact(Contact: Contact): Observable<Contact> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    // Contact Id must be null for the Web API to assign an Id
-    const newContact = { ...Contact, id: null };
-    return this.http.post<Contact>(this.contactsUrl, newContact, { headers })
-      .pipe(
-        tap(data => console.log('createContact: ' + JSON.stringify(data))),
-        tap(data => {
-          this.Contacts.push(data);
-        }),
-        catchError(this.handleError)
-      );
-  }
-
-  deleteContact(id: Guid): Observable<{}> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.contactsUrl}/${id}`;
-    return this.http.delete<Contact>(url, { headers })
-      .pipe(
-        tap(data => console.log('deleteContact: ' + id)),
-        tap(data => {
-          const foundIndex = this.Contacts.findIndex(item => item.id === id);
-          if (foundIndex > -1) {
-            this.Contacts.splice(foundIndex, 1);
-          }
-        }),
-        catchError(this.handleError)
-      );
-  }
-
-  //updateContact(Contact: Contact): Observable<Contact> {
-  //  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  //  const url = `${this.contactsUrl}/${Contact.id}`;
-  //  return this.http.put<Contact>(url, Contact, { headers })
-  //    .pipe(
-  //      tap(() => console.log('updateContact: ' + Contact.id)),
-  //      // Update the item in the list
-  //      // This is required because the selected Contact that was edited
-  //      // was a copy of the item from the array.
-  //      tap(() => {
-  //        const foundIndex = this.Contacts.findIndex(item => item.id === Contact.id);
-  //        if (foundIndex > -1) {
-  //          this.Contacts[foundIndex] = Contact;
-  //        }
-  //      }),
-  //      // Return the Contact on an update
-  //      map(() => Contact),
-  //      catchError(this.handleError)
-  //    );
-  //}
-
   private handleError(err: any) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console

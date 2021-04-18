@@ -56,7 +56,7 @@ export class ContactEditComponent {
 
     // Watch for changes to the currently selected product
     this.sub = this.contactService.selectedContactChanges$.subscribe(
-      currentProduct => { this.displayProduct(currentProduct); console.log(currentProduct) }
+      currentProduct => this.displayContact(currentProduct)
     );
 
     // Watch for value changes for validation
@@ -75,7 +75,7 @@ export class ContactEditComponent {
     this.displayMessage = this.genericValidator.processMessages(this.contactForm);
   }
 
-  displayProduct(contact: Contact | null): void {
+  displayContact(contact: Contact | null): void {
     // Set the local product property
     this.contact = contact;
 
@@ -103,43 +103,41 @@ export class ContactEditComponent {
   cancelEdit(product: Contact): void {
     // Redisplay the currently selected product
     // replacing any edits made
-    this.displayProduct(product);
+    this.displayContact(product);
   }
 
-  deleteProduct(contact: Contact): void {
-    //if (contact && contact.id) {
-    //  if (confirm(`Really delete the product: ${contact.name}?`)) {
-    //    this.contactService.deleteProduct(product.id).subscribe({
-    //      next: () => this.contactService.changeSelectedProduct(null),
-    //      error: err => this.errorMessage = err
-    //    });
-    //  }
-    //} else {
-    //  // No need to delete, it was never saved
-    //  this.contactService.changeSelectedProduct(null);
-    //}
+  deleteContact(contact: Contact): void {
+    if (contact && contact.id) {
+      if (confirm(`Really delete the contact: ${contact.name}?`)) {
+        this.contactService.deleteContact(contact.id).subscribe(() => { this.contactService.changeSelectedContact(null) },
+          error => console.error(error));
+      }
+    } else {
+      // No need to delete, it was never saved
+      this.contactService.changeSelectedContact(null);
+    }
   }
 
-  saveProduct(originalProduct: Contact): void {
+  saveProduct(originalContact: Contact): void {
     if (this.contactForm.valid) {
       if (this.contactForm.dirty) {
         // Copy over all of the original product properties
         // Then copy over the values from the form
         // This ensures values not on the form, such as the Id, are retained
-        const contact = { ...originalProduct, ...this.contactForm.value };
+        const contact = { ...originalContact, ...this.contactForm.value };
 
         if (!contact.id) {
           this.contactService.insertContact(contact).pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((result: Contact) => {
-              this.contactService.changeSelectedContact(result)
-              alert("Your contact has been successfully added")
+              this.contactService.changeSelectedContact(contact);
+              alert("Your contact has been successfully added");
             },
               error => console.error(error));
         } else {
           this.contactService.updateContact(contact).pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((result: Contact) => {
-              this.contactService.changeSelectedContact(result)
-              alert("Your contact has been successfully saved")
+              this.contactService.changeSelectedContact(contact);
+              alert("Your contact has been successfully saved");
             },
               error => console.error(error));
         }

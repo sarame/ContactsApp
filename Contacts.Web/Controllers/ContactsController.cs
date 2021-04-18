@@ -72,7 +72,7 @@ namespace Contacts.Web.Controllers
         }
 
         [Route("updateContact")]
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdateContact([FromBody] Contact record)
         {
             try
@@ -88,12 +88,12 @@ namespace Contacts.Web.Controllers
             }
         }
         [Route("deleteContacts/{id}")]
-        [HttpGet]
-        public async Task<IActionResult> DeleteContact(Guid id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteContact(string id)
         {
             try
             {
-                await _contactsServices.DeleteAsync(id);
+                await _contactsServices.DeleteAsync(new Guid(id));
                 return Ok();
             }
             catch (Exception ex)
