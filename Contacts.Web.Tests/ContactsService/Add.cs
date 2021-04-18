@@ -31,7 +31,7 @@ namespace Contacts.Web.Tests.ContactsService
             // ARRANGE 
             var contactsRepository = new Mock<IRepository<Contact>>();
             var contactsServices = new ContactsServices(contactsRepository.Object);
-            var contact = new Contact { Name = "sdsdsd", Phone = 165456848 };
+            var contact = new Contact { Name = "sdsdsd", Phone = "165456848", email = "s@gmail.com", Company = "inc" };
             //Act 
             await contactsServices.AddAsync(contact);
             // Assert 

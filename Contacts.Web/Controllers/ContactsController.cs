@@ -71,13 +71,13 @@ namespace Contacts.Web.Controllers
             }
         }
 
-        [Route("upsertContact/{id}")]
+        [Route("updateContact")]
         [HttpPost]
-        public async Task<IActionResult> UpsertContact(Guid id, [FromBody] Contact record)
+        public async Task<IActionResult> UpdateContact([FromBody] Contact record)
         {
             try
             {
-                await _contactsServices.UpdateAsync(record, id);
+                await _contactsServices.UpdateAsync(record, record.Id);
                 return Ok();
             }
             catch (Exception ex)

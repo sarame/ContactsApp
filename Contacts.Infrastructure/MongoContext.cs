@@ -8,8 +8,8 @@ namespace Contacts.Infrastructure
 
         public MongoContext()
         {
-            MongoClient client = new MongoClient();
-            db = client.GetDatabase("PhoneContacts");
+            MongoClient client = new MongoClient(DBConfigrationSettings.connectionString);
+            db = client.GetDatabase(DBConfigrationSettings.DBName);
         }
 
         public IMongoCollection<T> GetCollection<T>(string name)

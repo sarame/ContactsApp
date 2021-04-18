@@ -7,8 +7,10 @@ namespace Contacts.Domain.Models
     {
         [BsonId]
         public Guid Id { get; set; }
+        public string Phone { get; set; }
         public string Name { get; set; }
-        public int Phone { get; set; }
+        public String Company { get; set; }
+        public string email { get; set; }
     }
 }
 
