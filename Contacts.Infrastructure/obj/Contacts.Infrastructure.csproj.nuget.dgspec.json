@@ -111,6 +111,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.12.2, )"

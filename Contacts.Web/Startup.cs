@@ -1,5 +1,6 @@
 using Contacts.Domain.Models;
 using Contacts.Infrastructure;
+using Contacts.Infrastructure.Models;
 using Contacts.Infrastructure.Repositories;
 using Contacts.Services;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +30,7 @@ namespace Contacts.Web
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.Configure<SettingsModel>(Configuration.GetSection("Settings"));
             services.AddTransient<MongoContext>();
             services.AddTransient<IRepository<Contact>, ContactRepository>();
             services.AddTransient<IContactsServices, ContactsServices>();

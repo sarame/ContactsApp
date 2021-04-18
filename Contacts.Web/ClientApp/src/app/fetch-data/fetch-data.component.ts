@@ -11,33 +11,31 @@ import { Subject } from 'rxjs';
 })
 export class FetchDataComponent {
   ngUnsubscribe: Subject<any> = new Subject();
-  public forecasts: WeatherForecast[];
-  model: ContactModel;
+  contacts: ContactModel[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private contactsService: ContactsService) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
-    const g: ContactModel = {
+    this.loadContacts();
+
+  }
+
+  loadContacts() {
+    this.contactsService.loadContacts()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((result: ContactModel[]) => this.contacts = result,
+        error => console.error(error));
+  }
+
+  onSubmit() {
+    const model: ContactModel = {
       name: "rrr",
-      phone: 989656
+      phone: "989656"
     };
-    this.contactsService.insertContact(g)
+    this.contactsService.insertContact(model)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((result) => {
-        console.log(result);
-        this.contactsService.loadContacts()
-          .pipe(takeUntil(this.ngUnsubscribe))
-          .subscribe((result) => console.log(result),
-            error => console.error(error));
+        alert("success!")
       },
         error => console.error(error));
   }
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}

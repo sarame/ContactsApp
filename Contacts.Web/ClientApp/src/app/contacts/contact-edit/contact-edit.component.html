@@ -1,0 +1,119 @@
+<div class="card"
+     *ngIf="contact">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveProduct(contact)"
+          [formGroup]="contactForm">
+      <fieldset>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"
+                 for="name">Name</label>
+
+          <div class="col-md-9">
+            <input [ngClass]="{'is-invalid': displayMessage.name }"
+                   class="form-control"
+                   id="name"
+                   type="text"
+                   placeholder="Name (required)"
+                   formControlName="name"
+                   (blur)="blur()" />
+            <span class="invalid-feedback"
+                  *ngIf="displayMessage.name">
+              {{displayMessage.name}}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"
+                 for="phone">Phone</label>
+
+          <div class="col-md-9">
+            <input [ngClass]="{'is-invalid': displayMessage.phone}"
+                   class="form-control"
+                   id="phone"
+                   type="text"
+                   placeholder="phone (required)"
+                   formControlName="phone"
+                   (blur)="blur()" />
+            <span class="invalid-feedback"
+                  *ngIf="displayMessage.phone">
+              {{displayMessage.phone}}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"
+                 for="company">Company</label>
+
+          <div class="col-md-9">
+            <input [ngClass]="{'is-invalid': displayMessage.company}"
+                   class="form-control"
+                   id="company"
+                   type="text"
+                   placeholder="Company"
+                   formControlName="company" />
+            <span class="invalid-feedback"
+                  *ngIf="displayMessage.company">
+              {{displayMessage.company}}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"
+                 for="email">Email</label>
+          <div class="col-md-9">
+            <input [ngClass]="{'is-invalid': displayMessage.email}"
+                   class="form-control"
+                   id="email"
+                   type="text"
+                   placeholder="Email"
+                   formControlName="email" />
+            <span class="invalid-feedback"
+                  *ngIf="displayMessage.email">
+              {{ displayMessage.email}}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-10 col-md-offset-2">
+            <span>
+              <button class="btn btn-primary"
+                      type="submit"
+                      style="width:80px;margin-right:10px"
+                      [disabled]="!contactForm.valid || !contactForm.dirty">
+                Save
+              </button>
+            </span>
+            <span>
+              <button class="btn btn-light"
+                      type="button"
+                      style="width:80px;margin-right:10px"
+                      (click)="cancelEdit(contact)">
+                Cancel
+              </button>
+            </span>
+            <span>
+              <button class="btn btn-light"
+                      type="button"
+                      style="width:80px"
+                      (click)="deleteProduct(contact)">
+                Delete
+              </button>
+            </span>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
