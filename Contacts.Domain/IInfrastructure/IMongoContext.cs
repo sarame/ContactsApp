@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace Contacts.Infrastructure
+namespace Contacts.Domain
 {
     public interface IMongoContext
     {

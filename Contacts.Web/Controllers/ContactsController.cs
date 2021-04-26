@@ -1,5 +1,5 @@
-﻿using Contacts.Domain.Models;
-using Contacts.Services;
+﻿using Contacts.Domain;
+using Contacts.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

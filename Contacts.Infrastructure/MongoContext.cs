@@ -1,4 +1,5 @@
-﻿using Contacts.Infrastructure.Models;
+﻿using Contacts.Domain;
+using Contacts.Infrastructure.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 

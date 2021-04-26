@@ -1,4 +1,5 @@
-﻿using Contacts.Domain.Models;
+﻿using Contacts.Domain;
+using Contacts.Domain.Models;
 using Contacts.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;

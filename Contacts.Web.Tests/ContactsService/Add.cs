@@ -5,7 +5,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Threading.Tasks;
-using Xunit;
 
 namespace Contacts.Web.Tests.ContactsService
 {

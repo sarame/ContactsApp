@@ -1,3 +1,4 @@
+using Contacts.Domain;
 using Contacts.Domain.Models;
 using Contacts.Infrastructure;
 using Contacts.Infrastructure.Models;

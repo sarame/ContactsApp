@@ -10,7 +10,6 @@ C:\Users\smelad\Desktop\cdp\poc\ContactsApp\MyShop.Domain\obj\Debug\netstandard2
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\bin\Debug\netstandard2.0\Contacts.Domain.deps.json
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\bin\Debug\netstandard2.0\Contacts.Domain.dll
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\bin\Debug\netstandard2.0\Contacts.Domain.pdb
-C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.csprojAssemblyReference.cache
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.AssemblyInfoInputs.cache
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.AssemblyInfo.cs
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.csproj.CoreCompileInputs.cache

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Contacts.Services
+namespace Contacts.Domain
 {
     public interface IContactsServices
     {
