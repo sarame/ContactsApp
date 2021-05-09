@@ -34,8 +34,8 @@ export class ContactService {
     const endpoint = `${this.baseServiceUrl}contacts/insertContact`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(endpoint, model, { headers: headers })
-      .pipe(tap(data => {
-        this.contacts.push(model);
+      .pipe(tap((data: Contact) => {
+        this.contacts.push(data);
       }), catchError(errorRes => {
         return throwError(errorRes);
       }));

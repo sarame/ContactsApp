@@ -1,14 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { Subject, Subscription } from 'rxjs';
-
 import { Contact } from '../models/contact';
 import { ContactService } from '../services/contact.service';
 import { GenericValidator } from '../../shared/generic-validator';
-import { NumberValidators } from '../../shared/number.validator';
 import { takeUntil } from 'rxjs/operators';
 import { ContactConstants } from '../constants/contact.constants';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'contact-edit',
@@ -40,7 +38,7 @@ export class ContactEditComponent {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       phone: ['', Validators.required],
-      company: ['', Validators.required],
+      company: [''],
       email: ['',[ Validators.required, Validators.email]]
     });
 
@@ -107,10 +105,11 @@ export class ContactEditComponent {
   saveProduct(originalContact: Contact): void {
     if (this.contactForm.valid) {
       if (this.contactForm.dirty) {
-        const contact = { ...originalContact, ...this.contactForm.value };
+        let contact = { ...originalContact, ...this.contactForm.value };
         if (!contact.id) {
           this.contactService.insertContact(contact).pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((result: Contact) => {
+              contact = result;
               this.contactService.changeSelectedContact(contact);
               alert(ContactConstants.addMessage);
             },

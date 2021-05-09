@@ -295,3 +295,4 @@ C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\obj\Debug\netcore
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\obj\Debug\netcoreapp3.1\Contacts.Web.Tests.dll
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\obj\Debug\netcoreapp3.1\Contacts.Web.Tests.pdb
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\obj\Debug\netcoreapp3.1\Contacts.Web.Tests.genruntimeconfig.cache
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Web.Tests\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll

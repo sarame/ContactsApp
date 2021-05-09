@@ -27,8 +27,8 @@ namespace Contacts.Web.Controllers
         {
             try
             {
-                await _contactsServices.AddAsync(record);
-                return Ok();
+                var result = await _contactsServices.AddAsync(record);
+                return new OkObjectResult(result);
             }
             catch (Exception ex)
             {

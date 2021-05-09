@@ -7,7 +7,7 @@ namespace Contacts.Domain
 {
     public interface IContactsServices
     {
-        Task AddAsync(Contact entity);
+        Task<Contact> AddAsync(Contact entity);
         Task UpdateAsync(Contact entity, Guid id);
         Task<Contact> GetAsync(Guid id);
         Task<List<Contact>> AllAsync();

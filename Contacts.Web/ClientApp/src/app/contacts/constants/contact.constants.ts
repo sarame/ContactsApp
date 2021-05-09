@@ -17,9 +17,6 @@ export class ContactConstants {
     email: {
       required: 'Email is required.',
       email: 'This email does not match email format'
-    },
-    comapny: {
-      required: 'Company is required.'
     }
   };
 }

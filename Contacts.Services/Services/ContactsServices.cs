@@ -16,13 +16,15 @@ namespace Contacts.Services
             _repository = repository;
         }
 
-        public async Task AddAsync(Contact obj)
+        public async Task<Contact> AddAsync(Contact obj)
         {
             if (obj == null)
             {
                 throw new ArgumentNullException(typeof(Contact).Name + " object is null");
             }
+            obj.Id = new Guid();
             await _repository.AddAsync(obj);
+            return obj;
         }
         public async Task<List<Contact>> AllAsync()
         {

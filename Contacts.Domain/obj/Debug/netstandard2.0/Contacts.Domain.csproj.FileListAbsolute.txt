@@ -15,3 +15,4 @@ C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandar
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.csproj.CoreCompileInputs.cache
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.dll
 C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.pdb
+C:\Users\smelad\Desktop\cdp\poc\ContactsApp\Contacts.Domain\obj\Debug\netstandard2.0\Contacts.Domain.csprojAssemblyReference.cache
